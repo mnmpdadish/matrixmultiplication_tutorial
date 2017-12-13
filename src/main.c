@@ -1,13 +1,22 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
+
 #include "veryBasicMatrix.h"
 
 
 
-int main()
+int main(int argc, char *argv[])
 {
-  unsigned int N = 2000,i,j;
+  unsigned int N,i,j;
+  if(argc!=2) {
+    printf("program usage example:\n$ ./test 10\n\n");
+    printf("This will compute the 10x10 matrix of Discrete Fourier Transform (DFT), named A,\n");
+    printf("then compute its complex conjugate (B) and multiply them to obtain the identity (C).\n");
+    printf("\nusing size=2000 by default.\n");
+    N = 2000;
+    //exit(1);
+  }
+  else {
+    N = my_atoi(argv[1]);
+  }
   cMatrix A, B, C;
   init_cMatrix(&A,N);
   init_cMatrix(&B,N);

@@ -1,8 +1,12 @@
 #pragma once
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 #include <complex.h>
 #include <assert.h>
-//#include "../util/utilities.h"
+#include <string.h>
+#include <ctype.h>
 
 // reminder:
 // int * ptr;
@@ -10,7 +14,7 @@
 // int * const constPtr;
 // int const * const constPtrToConst;
 
-// matrix matrix multiplication:
+// matrix matrix multiplication in lapack:
 unsigned int zgemm_(char const*, char const*, unsigned int const*, unsigned int const*, unsigned int const*,
                   double complex const*, double complex const*, unsigned int const*, double complex const*, 
                   unsigned int const*, double complex const*, double complex *, unsigned int const*);
@@ -92,7 +96,7 @@ unsigned int print_cMatrix(cMatrix const * A) {
   
   unsigned int i,j, isLarge=1;
   unsigned int nPrint=10;
-  if(A->N <nPrint) {
+  if(A->N <=nPrint) {
     nPrint=A->N;
     isLarge=0;
   }
@@ -115,5 +119,27 @@ unsigned int print_cMatrix(cMatrix const * A) {
   
   fflush(stdout);
   return 0;
+}
+
+
+
+
+
+int my_atoi(char const * const str) {
+  
+  int i=0, res=0, minus = str[i] == '-';
+  if (minus) i++;
+  
+  int N=strlen(str); //important to not evaluate each iteration
+  while(i<N){  
+    if(!isdigit(str[i])) {
+      printf("could not translate '%s' to an integer.\n",str); 
+      exit(1);
+    }
+    res = res*10 + (str[i++] - '0');
+  }
+
+  
+  return minus ? -res : res;
 }
 
