@@ -1,4 +1,4 @@
-OPTIONS = -O2 -Wall -ffast-math
+OPTIONS = -O2 -Wall 
 EXEC = test
 
 all: executable
