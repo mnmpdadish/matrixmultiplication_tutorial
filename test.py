@@ -5,8 +5,8 @@ import sys
 
 def PrettyPrintComplexMatrix(matrix,prec=3,linewidth1=150,suppressOn=True):
   np.set_printoptions(precision=prec,linewidth=linewidth1,suppress=suppressOn)   
-  print 'RE=\n', np.real(matrix)
-  print 'Im=\n', np.imag(matrix)
+  print('RE=\n', np.real(matrix))
+  print('Im=\n', np.imag(matrix))
    
 def matrixMatrixMultiplication_good(A,B,C):
   C = np.dot(A,B)
@@ -19,7 +19,7 @@ def matrixMatrixMultiplication_dummy(A,B,C):
         C[ii,jj] += A[ii,kk]*B[kk,jj]
 
 N = int(sys.argv[1])
-print N
+print(N)
 
 A = np.zeros((N,N),dtype=complex)
 B = np.zeros((N,N),dtype=complex)
@@ -38,16 +38,16 @@ for ii in range(0,N):
     omega_ij *= omega_i
   omega_i *= omega
 
-print '\nA=\n'
+print('\nA=\n')
 PrettyPrintComplexMatrix(A)
-print '\nB=\n'
+print('\nB=\n')
 PrettyPrintComplexMatrix(B)
 
-t1 = tm.clock()
+t1 = tm.time()
 matrixMatrixMultiplication_good(A,B,C)
 
-print '\nC=\n'
+print('\nC=\n')
 PrettyPrintComplexMatrix(C)
 
-print '\n\ntime for matrix multiplication: ', tm.clock() - t1
+print('\n\ntime for matrix multiplication: ', tm.time() - t1)
 
