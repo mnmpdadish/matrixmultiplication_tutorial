@@ -4,8 +4,8 @@
 #$ ./release.sh
 
 cd ..
-tar -cvzf matrixmultiplication_mkl.tar.gz matrixmultiplication_mkl --exclude-vcs-ignores --exclude-vcs --exclude='release.sh'
-mv matrixmultiplication_mkl.tar.gz matrixmultiplication_mkl/.
+tar -cvzf matrixmultiplication_tutorial.tar.gz --exclude-vcs-ignores --exclude-vcs --exclude='release.sh' matrixmultiplication_tutorial 
+mv matrixmultiplication_tutorial.tar.gz matrixmultiplication_tutorial/.
 
 #options used:
 #--exclude-vcs-ignores:  consider the .hgignore or .gitignore file to ignore files in the tar

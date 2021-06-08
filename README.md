@@ -1,6 +1,4 @@
-##########
 # README #
-##########
 
 Programmer:  Maxime Charlebois
 
@@ -15,20 +13,21 @@ should give the identity matrix (easy to check). The result does not matter here
 (it is only useful to check if the computation yield the correct output). What
 matter here is the speed of the matrices multiplication.
 
-################
-MAIN REPOSITORY:
+## MAIN REPOSITORY:
 
 To get the most recent version of the source code on this project,
 in command line on a bash terminal (represented here with the "$" sign), type:
 
-$ hg clone https://bitbucket.org/mnmpdadish/matrixmultiplication_mkl
+$ git clone https://github.com/mnmpdadish/matrixmultiplication_tutorial.git
 
-##########
-COMPILING:
 
-to compile, go in the "matrixmultiplication_mkl" directory (where the "makefile" is) and type:
+## COMPILING:
 
+to compile, go in the "matrixmultiplication_tutorial" directory (where the "makefile" is) and type:
+
+```
 $ make
+```
 
 There is 3 ways to compile this code:
 
@@ -43,8 +42,7 @@ edit the "main.c" and choose which "cMatrixMatrixMultiplication" function to use
 and/or edit the "makefile" to choose which "LIBS" variable to use.
 
 
-#############
-DEPENDENCIES:
+## DEPENDENCIES:
 
 To compile, the system need the compiler gcc and a valid version of lapack and/or mkl.
 
@@ -53,11 +51,14 @@ lapack:   http://www.netlib.org/lapack/
 
 Tested with gcc-5.4, lapack-3.8.0 and l_mkl_2018.0.128. Should work with any version.
 
-####
-RUN:
+
+## RUN:
 
 To run the code with a matrix 10 by 10, type:
+
+```
 $ ./test 10
+```
 
 The number choose the matrix size.
 
@@ -74,7 +75,10 @@ method 2. (lapack): 0m8.628s
 method 3. (MKL):    0m4.666s
 
 note that to obtain a good comparison between different methods, I had to do:
+
+```
 $ export OMP_NUM_THREADS=1
+```
 
 in order to enforce lapack and mkl to use only one processor (otherwise it is unfair).
 If you change the size of the matrix, you can check that the algorithm scale as O(n^3).
